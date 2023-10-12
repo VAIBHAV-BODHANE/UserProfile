@@ -1,0 +1,51 @@
+{% extends 'userprofile/base.html' %}
+{% block css %}
+.login_btn {
+    width: 48%;
+    background: #35cc2f !important;
+    color: white !important;
+}
+.login_btn:focus {
+    box-shadow: none !important;
+    outline: 0px !important;
+}
+.login_btn:hover {
+    background: #198754 !important;
+}
+.delete_btn {
+    width: 100%;
+    color: white !important;
+}
+.delete_btn:focus {
+    box-shadow: none !important;
+    outline: 0px !important;
+}
+.exportbtn {
+    width: 100%
+}
+{% endblock %}
+{% block body %}
+<div class="container d-flex justify-content-center my-5 ">
+    <div class="d-inline-block">
+        <div class="card" style="width: 16rem;">
+            {% if is_pic %}
+            <img src="{{instance.pic.url}}" class="rounded float-start" alt="{{instance.name}}">
+            {% else %}
+            <img src="" class="rounded float-star" alt="{{instance.name}}">
+            {% endif %}
+        </div>
+    </div>
+    <div class="d-inline-block mx-5">
+        <a href="{% url 'uprofile:exportprofile' instance.id %}" class="w-100"><input class="btn btn-outline-success exportbtn mb-2" type="button" value="Export Profile"></a>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}          
+            {{form.as_p}}
+            <div class="d-flex justify-content-between">
+                <input class="btn login_btn" type="submit" value="Update Profile">
+                <a href="{% url 'uprofile:deleteprofile' instance.id %}" class="w-50"><input class="btn btn-danger delete_btn" type="button" value="Delete Profile"/></a>
+            </div>
+        </form>
+    </div>
+    <!-- {{emails}} -->
+</div>
+{% endblock %}

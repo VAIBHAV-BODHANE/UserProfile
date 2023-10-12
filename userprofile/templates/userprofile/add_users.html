@@ -1,0 +1,18 @@
+{% extends 'userprofile/base.html' %}
+
+{% block title %}
+Add users
+{% endblock %}
+
+{% block body %}
+<div class="container my-5">
+    <div class="mb-3">
+    <form method="POST" action="{% url 'uprofile:addusers' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="formFile" class="form-label mb-3">Upload csv to add multiple users! Need sample csv file <a href="{% url 'uprofile:samplecsv' %}">click here!</a></label>
+        <input class="form-control" name="inpt" type="file" id="formFile">
+        <input class="btn btn-success my-3 w-100" type="submit" value="Upload">
+    </form>
+    </div>
+</div>
+{% endblock %}

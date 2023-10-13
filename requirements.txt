@@ -12,6 +12,8 @@ google-auth-oauthlib==1.1.0
 googleapis-common-protos==1.60.0
 httplib2==0.22.0
 idna==3.4
+mod-wsgi==4.9.4
+oauth2client==4.1.3
 oauthlib==3.2.2
 Pillow==10.0.1
 protobuf==4.24.4
@@ -22,6 +24,7 @@ pytz==2023.3.post1
 requests==2.31.0
 requests-oauthlib==1.3.1
 rsa==4.9
+six==1.16.0
 sqlparse==0.4.4
 typing_extensions==4.8.0
 tzdata==2023.3

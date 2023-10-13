@@ -224,7 +224,7 @@ flow = OAuth2WebServerFlow(
     client_id=settings.GOOGLE_OAUTH2_CLIENT_ID,
     client_secret=settings.GOOGLE_OAUTH2_CLIENT_SECRET,
     scope=['https://www.googleapis.com/auth/gmail.readonly', 'https://www.googleapis.com/auth/gmail.send'],
-    redirect_uri='http://127.0.0.1:8000/user/oauth2callback',  # Should match your OAuth credentials
+    redirect_uri='http://localhost/user/oauth2callback',  # Should match your OAuth credentials
 )
 
 def oauth2callback(request):

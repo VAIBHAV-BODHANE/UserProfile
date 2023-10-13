@@ -11,7 +11,7 @@
         {% for i in user_list %}
         <form action="{% url 'uprofile:usrdetails' i.0 %}">
             {% csrf_token %}
-            <button type="submit" class="list-group-item list-group-item-action py-4" id={{i.0}}>
+            <button type="submit" class="list-group-item list-group-item-action py-4 my-1" id={{i.0}}>
             <!-- <li class="list-group-item py-4"> -->
                 <div class="d-flex justify-content-between">
                     <div >Name: {{i.1}} </div>

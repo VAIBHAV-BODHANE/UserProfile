@@ -1,0 +1,24 @@
+{% extends 'userprofile/base.html' %}
+
+{% block title %}
+Email
+{%endblock%}
+{% block body %}
+    
+<div class="container my-5">
+    {% for i in data %}
+        <div class="list-group my-1">
+            <a href="{% url 'uprofile:openemail' i.id %}" class="list-group-item list-group-item-action" aria-current="true">
+            <div class="d-flex w-100 justify-content-between">
+                <div class="w-60">
+                    <h5 class="mb-1">Subject: {{i.subject}}</h5>
+                </div>
+                <small>{{i.date}}</small>
+            </div>
+            <p class="mb-1">{{i.content}}</p>
+            </a>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

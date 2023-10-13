@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'userprofile',
+    'oauth2client',
 ]
 
 MIDDLEWARE = [
@@ -145,19 +146,23 @@ LOGIN_REDIRECT_URL = 'uprofile:home'
 
 # Gmail API Credentials
 
-GMAIL_API_CREDENTIALS = {
-    # 'web': {
-    #     'client_id': 'YOUR_CLIENT_ID',
-    #     'client_secret': 'YOUR_CLIENT_SECRET',
-    #     'redirect_uris': ['YOUR_REDIRECT_URI'],
-    #     'auth_uri': 'https://accounts.google.com/o/oauth2/auth',
-    #     'token_uri': 'https://accounts.google.com/o/oauth2/token',
-    # }
-    'web': {
-        'client_id': '922521259398-ofsf7a844s6pr25a8mbdjehsen9b9rbu.apps.googleusercontent.com',
-        'client_secret': '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',
-        # 'redirect_uris': ["http://127.0.0.1:8000"],
-        'auth_uri': 'https://accounts.google.com/o/oauth2/auth',
-        'token_uri': 'https://oauth2.googleapis.com/token',
-    }
-}
+# OAuth2 Credentials
+GOOGLE_OAUTH2_CLIENT_ID = '150492781827-52j6r8742u34c5kku82u6h7c81u39keu.apps.googleusercontent.com'
+GOOGLE_OAUTH2_CLIENT_SECRET = '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'
+
+# GMAIL_API_CREDENTIALS = {
+#     # 'web': {
+#     #     'client_id': 'YOUR_CLIENT_ID',
+#     #     'client_secret': 'YOUR_CLIENT_SECRET',
+#     #     'redirect_uris': ['YOUR_REDIRECT_URI'],
+#     #     'auth_uri': 'https://accounts.google.com/o/oauth2/auth',
+#     #     'token_uri': 'https://accounts.google.com/o/oauth2/token',
+#     # }
+#     'web': {
+#         'client_id': '922521259398-ofsf7a844s6pr25a8mbdjehsen9b9rbu.apps.googleusercontent.com',
+#         'client_secret': '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',
+#         # 'redirect_uris': ["http://127.0.0.1:8000"],
+#         'auth_uri': 'https://accounts.google.com/o/oauth2/auth',
+#         'token_uri': 'https://oauth2.googleapis.com/token',
+#     }
+# }

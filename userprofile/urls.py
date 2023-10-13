@@ -19,4 +19,9 @@ urlpatterns = [
     path('export_all_profile/', views.export_all_profile, name = 'exportallprofile'),
     path('add_users/', views.add_users, name = 'addusers'),
     path('sample_csv/', views.sample_csv, name = 'samplecsv'),
+    path('oauth2callback/', views.oauth2callback, name = 'oauth2callback'),
+    path('email/', views.email_tab, name='emailtab'),
+    path('list_inbox_emails/', views.list_inbox_emails, name='list_inbox_emails'),
+    path('open_email/<str:id>', views.open_email, name='openemail'),
+    path('reply/<str:id>', views.reply_to_email, name='replytoemail'),
 ]

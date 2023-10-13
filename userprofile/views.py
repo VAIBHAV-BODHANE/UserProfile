@@ -178,33 +178,36 @@ def export_all_profile(request):
 @login_required(login_url='uprofile:login')
 def add_users(request):
     if request.method == 'POST':
-        file = request.FILES['inpt']
-        decoded_file = file.read().decode('utf-8')
-        io_string = io.StringIO(decoded_file)
-        data = []
-        keys = {}
-        for i,j in enumerate(csv.reader(io_string, delimiter=',', quotechar='|')):
-            dt = keys.copy()
-            if i == 0:
-                for k in j:
-                    keys[k] = None
-                continue
-            for key,value in zip(dt.keys(),j):
-                if key == 'email' and (value == '' or value == None):
-                    for a,b in keys.items():
-                        keys[a] = None
-                    break
-                dt[key]=value
-            if dt['email'] == None:
-                continue
-            data.append(dt)
-        print(data)
-        for user in data:
-            password = user.pop('password')
-            user = UserProfile(**user)
-            user.set_password(password)
-            user.save()
-        messages.success(request, "Users Add Successfully!")
+        try:
+            file = request.FILES['inpt']
+            decoded_file = file.read().decode('utf-8')
+            io_string = io.StringIO(decoded_file)
+            data = []
+            keys = {}
+            for i,j in enumerate(csv.reader(io_string, delimiter=',', quotechar='|')):
+                dt = keys.copy()
+                if i == 0:
+                    for k in j:
+                        keys[k] = None
+                    continue
+                for key,value in zip(dt.keys(),j):
+                    if key == 'email' and (value == '' or value == None):
+                        for a,b in keys.items():
+                            keys[a] = None
+                        break
+                    dt[key]=value
+                if dt['email'] == None:
+                    continue
+                data.append(dt)
+            print(data)
+            for user in data:
+                password = user.pop('password')
+                user = UserProfile(**user)
+                user.set_password(password)
+                user.save()
+            messages.success(request, "Users Add Successfully!")
+        except Exception as e:
+            print('Exception----------', e)
     return render(request, 'userprofile/add_users.html', )
 
 
